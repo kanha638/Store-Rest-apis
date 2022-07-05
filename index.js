@@ -4,6 +4,8 @@ const app = express();
 const cors = require("cors");
 const dotenv = require("dotenv");
 
+const productsRoute = require("./routes/products");
+
 dotenv.config();
 app.use(express.json());
 app.use(cors());
@@ -14,6 +16,8 @@ mongoose
   .catch((err) => console.log(err));
 
 const PORT = 5500;
+
+app.use("/api/product", productsRoute);
 app.listen(PORT, () => {
   console.log("App is running on Port Number :: " + PORT);
 });
