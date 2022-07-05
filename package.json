@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mogoose": "^0.0.1-security",
+    "mongoose": "^6.4.2",
+    "nodemon": "^2.0.18"
+  },
+  "name": "store-rest-apis",
+  "description": "It is a basic crud operation backend for ecommerce app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanha638/Store-Rest-apis.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kanha638/Store-Rest-apis/issues"
+  },
+  "homepage": "https://github.com/kanha638/Store-Rest-apis#readme"
+}
