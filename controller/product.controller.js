@@ -21,15 +21,32 @@ const addProduct = async (req, res) => {
         .json({ message: "all feild required for saving the post" });
     }
   } catch (error) {
-    res.status(401).send(err);
+    res.status(401).send(error);
   }
 };
 
-const getProduct = async (req, res) => {
+const getAllProducts = async (req, res) => {
   try {
     const product = await Product.find();
     res.status(200).json(product);
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).send(error);
+  }
+};
+const getProduct = async (req, res) => {
+  try {
+    const productId = req.params.id;
+
+    let product = await Product.findOne({ _id: productId });
+    if (!product) {
+      res.status(401).json({ message: "post is not found" });
+    } else {
+      product = product.toObject();
+      res.status(200).json(product);
+    }
+  } catch (error) {
+    res.status(502).json(error);
+  }
 };
 
-module.exports = { addProduct, getProduct };
+module.exports = { addProduct, getAllProducts, getProduct };

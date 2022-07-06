@@ -5,6 +5,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 
 const productsRoute = require("./routes/products");
+const cartRoute = require("./routes/carts");
 
 dotenv.config();
 app.use(express.json());
@@ -18,6 +19,7 @@ mongoose
 const PORT = 5500;
 
 app.use("/api/product", productsRoute);
+app.use("/api/mycart", cartRoute);
 app.listen(PORT, () => {
   console.log("App is running on Port Number :: " + PORT);
 });
