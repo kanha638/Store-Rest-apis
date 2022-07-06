@@ -9,5 +9,6 @@ router.post("/add-product", PostController.addProduct);
 router.get("/productList", PostController.getAllProducts);
 // For getting product information Using Product Id
 router.post("/info/:id", PostController.getProduct);
+router.delete("/delete/:id", PostController.deleteProduct);
 
 module.exports = router;

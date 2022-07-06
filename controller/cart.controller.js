@@ -60,6 +60,7 @@ const addtoCart = async (req, res) => {
   }
 };
 
+// For deleting all the products from the cartItem List
 const emptyCart = async (req, res) => {
   try {
     const userId = req.body.userId;
@@ -77,6 +78,7 @@ const emptyCart = async (req, res) => {
   }
 };
 
+// For getting User Cart Items
 const getCartitem = async (req, res) => {
   try {
     const id = req.params.userId;
@@ -91,6 +93,7 @@ const getCartitem = async (req, res) => {
   }
 };
 
+// For removing variable quantity of one product in Cart
 const removeProduct = async (req, res) => {
   try {
     const userId = req.body.userId;
@@ -105,6 +108,8 @@ const removeProduct = async (req, res) => {
 
       if (item) {
         if (item.quantity <= quantity) {
+          // If the quantity is less than the requst deletion quantity then
+          // Here i have deleted that product from the cartItems array
           const result = await Cart.findOneAndUpdate(
             { userId: userId, "cartItems.productId": productId },
             {
@@ -115,6 +120,9 @@ const removeProduct = async (req, res) => {
           );
           res.status(200).json({ message: "removel success" });
         } else {
+          // if after decreasing quantity if it resulting quantity does not go to 0 or below 0
+          // here i have just decreased the quantity of the product and decreases price also
+
           const result = await Cart.findOneAndUpdate(
             { userId: userId, "cartItems.productId": productId },
             {

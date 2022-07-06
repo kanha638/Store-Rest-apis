@@ -18,7 +18,7 @@ mongoose
 
 const PORT = 5500;
 
-app.use("/api/product", productsRoute);
+app.use("/api/products", productsRoute);
 app.use("/api/mycart", cartRoute);
 app.listen(PORT, () => {
   console.log("App is running on Port Number :: " + PORT);
