@@ -6,6 +6,8 @@ const Product = require("../models/Product");
 // Add Product API
 router.post("/add-product", PostController.addProduct);
 // List Product API
-router.post("/productList", PostController.getProduct);
+router.get("/productList", PostController.getAllProducts);
+// For getting product information Using Product Id
+router.post("/info/:id", PostController.getProduct);
 
 module.exports = router;
